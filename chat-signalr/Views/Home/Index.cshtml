@@ -1,0 +1,40 @@
+﻿
+<link href="~/css/site.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/site.js"></script>
+
+<body onload="WebChat.InitialAll();">
+    <h1>Anonymous Chat</h1>
+    <div class="bg-image"></div>
+    
+    <div class="bg-text">
+        <div id="login-section">
+            <div class="input-group">
+                <span class="input-group-text" id="login-nickname-addon">Nickname</span>
+                <input type="text" id="login-nickname" class="form-control" aria-label="Nickname" aria-describedby="login-nickname-addon" maxlength="100">
+            </div>
+            <br />
+            <div class="input-group" id="login-button">
+                <button type="button" class="btn btn-secondary" id="button-login" onclick="WebChat.WebSocket.Request.Login();">Login</button>
+            </div>
+        </div>
+        <div id="chat-section" style="display: none;">
+            <div id="chat-messages"></div>
+            <div class="input-group">
+                <span class="input-group-text" id="chat-message-addon">Message</span>
+                <input type="text" id="chat-message" class="form-control" aria-label="Nickname" aria-describedby="chat-message-addon" maxlength="100">
+                <button type="button" class="btn btn-secondary" id="chat-send" onclick="WebChat.WebSocket.Request.Message();">Send</button>
+            </div>
+            <br />
+            <div class="input-group" id="chat-exit">
+                <button type="button" class="btn btn-dark" onclick="WebChat.WebSocket.Request.Logout();">Exit Room</button>
+            </div>
+        </div>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Anonymous Chat - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
